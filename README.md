@@ -1,5 +1,10 @@
 # Agnes AI Skills
 
+<p align="center">
+  <a href="./README.md"><img alt="Language: English" src="https://img.shields.io/badge/LANGUAGE-ENGLISH-0969DA?style=for-the-badge&labelColor=555555"></a>
+  <a href="./README.zh-CN.md"><img alt="Language: Simplified Chinese" src="https://img.shields.io/badge/LANGUAGE-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge&labelColor=555555"></a>
+</p>
+
 Official skill repository for Agnes AI model integration.
 
 This repository provides a reusable Codex skill for integrating Agnes AI text, image, video, and agent models through the OpenAI-compatible API gateway.
@@ -59,8 +64,3 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 - Docs: https://agnes-ai.com/doc/overview
 - Platform: https://platform.agnes-ai.com/
 - API base URL: `https://apihub.agnes-ai.com/v1`
-
-## Language
-
-- [English](./README.md)
-- [简体中文](./README.zh-CN.md)
