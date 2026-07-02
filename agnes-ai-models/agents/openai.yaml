@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agnes AI Models"
+  short_description: "Integrate Agnes AI text, image, video, and agent models."
+  default_prompt: "Use Agnes AI models with an OpenAI-compatible API key."
