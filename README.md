@@ -10,6 +10,15 @@ This repository provides a reusable Codex skill for integrating Agnes AI text, i
 | --- | --- |
 | [`agnes-ai-models`](./agnes-ai-models) | Integrate Agnes AI text, image, video, and agent workflows. |
 
+## Model Coverage
+
+| Model | Type | Primary use |
+| --- | --- | --- |
+| `agnes-2.0-flash` | Text and vision-language | Chat, coding, reasoning, streaming, tools, and image understanding |
+| `agnes-image-2.0-flash` | Image generation | Fast text-to-image and image-to-image generation |
+| `agnes-image-2.1-flash` | Image generation | Higher quality image generation and editing |
+| `agnes-video-v2.0` | Video generation | Text-to-video, image-to-video, and video result polling |
+
 ## Requirements
 
 Before using the skill, each user must:
@@ -38,8 +47,8 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 
 - OpenAI-compatible chat completions
 - Streaming responses
-- Image generation with Agnes image models
-- Video generation and `video_id` polling
+- Image generation with `agnes-image-2.0-flash` and `agnes-image-2.1-flash`
+- Video generation with `agnes-video-v2.0` and `video_id` polling
 - Tool-calling style agent workflows
 - Common API errors and debugging checklists
 - Token Plan and RPM reference notes
