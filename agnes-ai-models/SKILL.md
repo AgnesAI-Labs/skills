@@ -1,6 +1,6 @@
 ---
 name: agnes-ai-models
-description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to configure Agnes AI API access, select or document Agnes models including agnes-2.0-flash, agnes-image-2.0-flash, agnes-image-2.1-flash, and agnes-video-v2.0, write Python/Node/curl examples, debug common API errors, poll video results with video_id, or adapt OpenAI-compatible clients to the Agnes API gateway.
+description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to configure Agnes AI API access, select or document Agnes models including agnes-2.0-flash, agnes-image-2.0-flash, agnes-image-2.1-flash, and agnes-video-v2.0, write Python/Node/curl examples, debug common API errors, poll video results with video_id, adapt OpenAI-compatible clients to the Agnes API gateway, or prepare guidance for other agent software such as OpenClaw, Hermes, Manus, and custom agents.
 ---
 
 # Agnes AI Models
@@ -29,6 +29,8 @@ Use these defaults unless the user specifies a different model:
 | Text-to-video and image-to-video | `agnes-video-v2.0` | `POST /v1/videos` |
 
 For detailed model notes, read `references/model_catalog.md`.
+
+For OpenClaw, Hermes, Manus, or other non-Codex agent setup, read `references/agent_compatibility.md`.
 
 ## Integration Workflow
 
