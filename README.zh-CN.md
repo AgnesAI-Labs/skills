@@ -1,5 +1,10 @@
 # Agnes AI Skills
 
+<p align="center">
+  <a href="./README.md"><img alt="Language: English" src="https://img.shields.io/badge/LANGUAGE-ENGLISH-0969DA?style=for-the-badge&labelColor=555555"></a>
+  <a href="./README.zh-CN.md"><img alt="Language: Simplified Chinese" src="https://img.shields.io/badge/LANGUAGE-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-1F883D?style=for-the-badge&labelColor=555555"></a>
+</p>
+
 Agnes AI 模型接入 Skill 官方仓库。
 
 本仓库提供可复用的 Codex skill，用于通过 OpenAI 兼容 API 网关接入 Agnes AI 文本、图像、视频和 Agent 模型。
@@ -59,8 +64,3 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 - 文档：https://agnes-ai.com/doc/overview
 - 平台：https://platform.agnes-ai.com/
 - API Base URL：`https://apihub.agnes-ai.com/v1`
-
-## 语言
-
-- [English](./README.md)
-- [简体中文](./README.zh-CN.md)
