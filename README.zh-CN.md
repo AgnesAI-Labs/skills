@@ -10,6 +10,15 @@ Agnes AI 模型接入 Skill 官方仓库。
 | --- | --- |
 | [`agnes-ai-models`](./agnes-ai-models) | 接入 Agnes AI 文本、图像、视频和 Agent 工作流。 |
 
+## 模型覆盖
+
+| 模型 | 类型 | 主要用途 |
+| --- | --- | --- |
+| `agnes-2.0-flash` | 文本与视觉语言 | 对话、代码、推理、流式输出、工具调用和图像理解 |
+| `agnes-image-2.0-flash` | 图像生成 | 快速文生图和图生图 |
+| `agnes-image-2.1-flash` | 图像生成 | 更高质量图像生成与编辑 |
+| `agnes-video-v2.0` | 视频生成 | 文生视频、图生视频和视频结果轮询 |
+
 ## 使用要求
 
 使用前，每位用户都需要：
@@ -38,8 +47,8 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 
 - OpenAI 兼容 Chat Completions
 - 流式输出
-- Agnes 图像模型生成
-- 视频生成与 `video_id` 轮询
+- `agnes-image-2.0-flash` 和 `agnes-image-2.1-flash` 图像生成
+- `agnes-video-v2.0` 视频生成与 `video_id` 轮询
 - Tool calling 风格 Agent 工作流
 - 常见 API 错误与排查清单
 - Token Plan 与 RPM 参考说明
