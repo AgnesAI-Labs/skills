@@ -1,6 +1,6 @@
 ---
 name: agnes-ai-models
-description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to help users configure Agnes AI API access, select Agnes text/image/video models, write Python/Node/curl examples, debug common API errors, poll video generation results with video_id, or adapt OpenAI-compatible clients to the Agnes API gateway.
+description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to configure Agnes AI API access, select or document Agnes models including agnes-2.0-flash, agnes-image-2.0-flash, agnes-image-2.1-flash, and agnes-video-v2.0, write Python/Node/curl examples, debug common API errors, poll video results with video_id, or adapt OpenAI-compatible clients to the Agnes API gateway.
 ---
 
 # Agnes AI Models
