@@ -15,6 +15,25 @@ This repository provides a reusable Codex skill for integrating Agnes AI text, i
 | --- | --- |
 | [`agnes-ai-models`](./agnes-ai-models) | Integrate Agnes AI text, image, video, and agent workflows. |
 
+## Install From GitHub
+
+Codex users can install the skill from this GitHub repository by targeting the skill directory:
+
+```bash
+python /path/to/install-skill-from-github.py \
+  --repo AgnesAI-Labs/skills \
+  --path agnes-ai-models
+```
+
+If your Codex environment supports URL-based installation, use:
+
+```bash
+python /path/to/install-skill-from-github.py \
+  --url https://github.com/AgnesAI-Labs/skills/tree/main/agnes-ai-models
+```
+
+Restart Codex after installation so the skill is discovered.
+
 ## Model Coverage
 
 | Model | Type | Primary use |
@@ -23,6 +42,19 @@ This repository provides a reusable Codex skill for integrating Agnes AI text, i
 | `agnes-image-2.0-flash` | Image generation | Fast text-to-image and image-to-image generation |
 | `agnes-image-2.1-flash` | Image generation | Higher quality image generation and editing |
 | `agnes-video-v2.0` | Video generation | Text-to-video, image-to-video, and video result polling |
+
+## Agent Compatibility
+
+This repository is packaged as a Codex Skill, but the skill content can also be used by other agent software such as OpenClaw, Hermes, Manus, and custom agents.
+
+For non-Codex agents, use the files in [`agnes-ai-models`](./agnes-ai-models) as integration instructions:
+
+- Read [`SKILL.md`](./agnes-ai-models/SKILL.md) for the main workflow.
+- Use [`references/model_catalog.md`](./agnes-ai-models/references/model_catalog.md) for model names, endpoints, RPM notes, and Token Plan notes.
+- Use [`references/troubleshooting.md`](./agnes-ai-models/references/troubleshooting.md) for common API errors.
+- Use [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) for OpenClaw, Hermes, Manus, and generic agent setup guidance.
+
+Agnes AI uses an OpenAI-compatible API gateway. Most agent frameworks that support custom OpenAI-compatible providers can use Agnes models by setting the Agnes base URL, API key, and model name.
 
 ## Requirements
 
@@ -40,7 +72,7 @@ Do not commit API keys, bearer tokens, `.env` files, screenshots containing secr
 
 ## Quick Start
 
-Copy or install the `agnes-ai-models` skill into your Codex skills directory, then ask Codex to use it for Agnes AI API integration tasks.
+Copy or install the `agnes-ai-models` skill into your Codex skills directory, or link the GitHub skill directory from another agent that supports external instructions. Then ask the agent to use it for Agnes AI API integration tasks.
 
 Example prompt:
 
