@@ -52,7 +52,7 @@ For non-Codex agents, use the files in [`agnes-ai-models`](./agnes-ai-models) as
 - Read [`SKILL.md`](./agnes-ai-models/SKILL.md) for the main workflow.
 - Use [`references/model_catalog.md`](./agnes-ai-models/references/model_catalog.md) for model names, endpoints, RPM notes, and Token Plan notes.
 - Use [`references/troubleshooting.md`](./agnes-ai-models/references/troubleshooting.md) for common API errors.
-- Use [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) for OpenClaw, Hermes, Manus, and generic agent setup guidance.
+- Use [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) for OpenClaw, Hermes, WorkBuddy, Manus, and generic agent setup guidance.
 
 Agnes AI uses an OpenAI-compatible API gateway. Most agent frameworks that support custom OpenAI-compatible providers can use Agnes models by setting the Agnes base URL, API key, and model name.
 
