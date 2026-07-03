@@ -52,7 +52,7 @@ python /path/to/install-skill-from-github.py \
 - 阅读 [`SKILL.md`](./agnes-ai-models/SKILL.md) 获取主要接入流程。
 - 使用 [`references/model_catalog.md`](./agnes-ai-models/references/model_catalog.md) 获取模型名称、端点、RPM 说明和 Token Plan 说明。
 - 使用 [`references/troubleshooting.md`](./agnes-ai-models/references/troubleshooting.md) 排查常见 API 错误。
-- 使用 [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) 查看 OpenClaw、Hermes、Manus 和通用智能体配置建议。
+- 使用 [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) 查看 OpenClaw、Hermes、WorkBuddy、Manus 和通用智能体配置建议。
 
 Agnes AI 使用 OpenAI 兼容 API 网关。大多数支持自定义 OpenAI-compatible provider 的智能体框架，都可以通过设置 Agnes Base URL、API Key 和模型名称来使用 Agnes 模型。
 
