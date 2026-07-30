@@ -24,8 +24,8 @@ Use these defaults unless the target agent requires different field names:
 | Base URL | Choose the service route below. |
 | API key | User-provided Agnes API key |
 | API key environment variable | `AGNES_API_KEY` |
-| Chat model | `agnes-2.0-flash` |
-| Image models | `agnes-image-2.0-flash`, `agnes-image-2.1-flash` |
+| Chat model | `agnes-2.5-flash` |
+| Image model | `agnes-image-2.1-flash` |
 | Video model | `agnes-video-v2.0` |
 
 ## Regional Endpoint Routing
@@ -49,7 +49,7 @@ Read the Agnes AI skill documentation from:
 https://github.com/AgnesAI-Labs/skills/tree/main/agnes-ai-models
 Before making requests, confirm the user has registered on the matching Agnes service and has an API key for that service.
 Never expose API keys, bearer tokens, private logs, screenshots containing secrets, or customer data.
-For model choices, use agnes-2.0-flash for chat, agnes-image-2.1-flash for image generation and editing, agnes-image-2.0-flash for fast image generation, and agnes-video-v2.0 for video generation.
+For model choices, use agnes-2.5-flash for chat, agnes-image-2.1-flash for image generation and editing, and agnes-video-v2.0 for video generation.
 ```
 
 ## Notes
