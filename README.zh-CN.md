@@ -70,6 +70,24 @@ export AGNES_API_KEY="your_api_key_here"
 
 不要提交 API Key、Bearer token、`.env` 文件、包含密钥的截图或任何私有客户数据。
 
+## 区域路由选择
+
+配置客户端前，请先选择对应服务线路：
+
+| 服务线路 | Base URL |
+| --- | --- |
+| 国际站（主线路） | `https://apihub.agnes-ai.com/v1` |
+| 国际站（备用线路） | `https://apihub.agnes-ai.cn/v1` |
+| 国内站 | `https://api.agnes-ai.cn/v1` |
+
+国际站默认使用主线路。若主线路出现网络、DNS、TLS 或连接超时问题，可用最小请求测试备用线路，并固定使用可连通的线路。国内站请使用国内站线路。遇到 `400`、`401`、`403`、`422` 或 `429` 时，不应通过切换线路解决，而应检查请求、账号、API Key、权限或限流。
+
+支持环境变量时，可将选择的 URL 配置为：
+
+```bash
+export AGNES_BASE_URL="https://apihub.agnes-ai.com/v1"
+```
+
 ## 快速开始
 
 将 `agnes-ai-models` skill 复制或安装到 Codex skills 目录，或在其他支持外部说明的智能体软件中引用该 GitHub skill 目录。然后让智能体使用它处理 Agnes AI API 接入任务。
@@ -95,4 +113,6 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 - 官网：https://agnes-ai.com/
 - 文档：https://agnes-ai.com/doc/overview
 - 平台：https://platform.agnes-ai.com/
-- API Base URL：`https://apihub.agnes-ai.com/v1`
+- 国际站 API Base URL（主线路）：`https://apihub.agnes-ai.com/v1`
+- 国际站 API Base URL（备用线路）：`https://apihub.agnes-ai.cn/v1`
+- 国内站 API Base URL：`https://api.agnes-ai.cn/v1`
