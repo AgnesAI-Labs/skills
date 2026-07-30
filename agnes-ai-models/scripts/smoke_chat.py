@@ -37,7 +37,7 @@ def main() -> int:
     )
 
     response = client.chat.completions.create(
-        model="agnes-2.0-flash",
+        model="agnes-2.5-flash",
         messages=[
             {
                 "role": "user",
