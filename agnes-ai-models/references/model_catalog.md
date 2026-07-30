@@ -19,8 +19,7 @@ Use the international alternate route only when the international primary route 
 
 | Model | Type | Endpoint | Use cases |
 | --- | --- | --- | --- |
-| `agnes-2.0-flash` | Text and vision-language | `/v1/chat/completions` | Chat, coding, reasoning, tools, streaming, image understanding, agent workflows |
-| `agnes-image-2.0-flash` | Image generation and editing | `/v1/images/generations` | Fast image generation, text-to-image, image-to-image |
+| `agnes-2.5-flash` | Text and vision-language | `/v1/chat/completions` | Chat, coding, reasoning, tools, streaming, image understanding, agent workflows |
 | `agnes-image-2.1-flash` | Image generation and editing | `/v1/images/generations` | Higher quality image generation and editing |
 | `agnes-video-v2.0` | Video generation | `/v1/videos` | Text-to-video, image-to-video, multi-image video, keyframe animation |
 
@@ -45,7 +44,7 @@ Image model RPM is resolution-specific:
 
 ## Token Plan Quotas
 
-| Plan | `agnes-2.0-flash` | `agnes-image-2.0/2.1-flash` | `agnes-video-v2.0` |
+| Plan | `agnes-2.5-flash` | `agnes-image-2.1-flash` | `agnes-video-v2.0` |
 | --- | --- | --- | --- |
 | Starter | 1,500 requests per 5 hours; 15,000 requests per week | 4,000 images per day | 500 seconds per day |
 | Plus | 7,500 requests per 5 hours; 75,000 requests per week | 4,000 images per day | 500 seconds per day |
