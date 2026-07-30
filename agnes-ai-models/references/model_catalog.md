@@ -1,6 +1,6 @@
 # Agnes AI Model Reference
 
-Last updated: 2026-06-28 00:00 Asia/Singapore
+Last updated: 2026-07-30 00:00 Asia/Singapore
 
 These values are public reference values. Model availability, rate limits, pricing, context windows, and quota rules may change. Confirm production-critical values in the official docs or Agnes Platform console.
 
@@ -8,8 +8,12 @@ These values are public reference values. Model availability, rate limits, prici
 
 | Use case | Base URL |
 | --- | --- |
-| OpenAI-compatible API | `https://apihub.agnes-ai.com/v1` |
-| Video result polling | `https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>` |
+| International service (primary) | `https://apihub.agnes-ai.com/v1` |
+| International service (alternate) | `https://apihub.agnes-ai.cn/v1` |
+| China service | `https://api.agnes-ai.cn/v1` |
+| International video result polling | `https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>` |
+
+Use the international alternate route only when the international primary route cannot connect because of a network, DNS, TLS, or timeout issue. Do not change routes to resolve request, authentication, permission, or rate-limit responses. For China service video polling, use the matching service documentation.
 
 ## Models
 
