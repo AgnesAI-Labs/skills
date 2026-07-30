@@ -1,6 +1,6 @@
 ---
 name: agnes-ai-models
-description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to configure Agnes AI API access, select or document Agnes models including agnes-2.0-flash, agnes-image-2.0-flash, agnes-image-2.1-flash, and agnes-video-v2.0, write Python/Node/curl examples, debug common API errors, poll video results with video_id, adapt OpenAI-compatible clients to the Agnes API gateway, or prepare guidance for other agent software such as OpenClaw, Hermes, Manus, and custom agents.
+description: Agnes AI model integration skill for OpenAI-compatible text, image, video, and agent workflows. Use when Codex needs to configure Agnes AI API access, select or document Agnes models including agnes-2.5-flash, agnes-image-2.1-flash, and agnes-video-v2.0, write Python/Node/curl examples, debug common API errors, poll video results with video_id, adapt OpenAI-compatible clients to the Agnes API gateway, or prepare guidance for other agent software such as OpenClaw, Hermes, Manus, and custom agents.
 ---
 
 # Agnes AI Models
@@ -42,9 +42,8 @@ Use these defaults unless the user specifies a different model:
 
 | Workflow | Model | Endpoint |
 | --- | --- | --- |
-| Chat, coding, reasoning, tools, streaming, vision input | `agnes-2.0-flash` | `POST /v1/chat/completions` |
+| Chat, coding, reasoning, tools, streaming, vision input | `agnes-2.5-flash` | `POST /v1/chat/completions` |
 | Image generation and editing | `agnes-image-2.1-flash` | `POST /v1/images/generations` |
-| Fast image generation | `agnes-image-2.0-flash` | `POST /v1/images/generations` |
 | Text-to-video and image-to-video | `agnes-video-v2.0` | `POST /v1/videos` |
 
 For detailed model notes, read `references/model_catalog.md`.
@@ -79,7 +78,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="agnes-2.0-flash",
+    model="agnes-2.5-flash",
     messages=[{"role": "user", "content": "Write a short intro to Agnes AI."}],
     stream=True,
 )
