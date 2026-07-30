@@ -70,6 +70,24 @@ export AGNES_API_KEY="your_api_key_here"
 
 Do not commit API keys, bearer tokens, `.env` files, screenshots containing secrets, or private customer data.
 
+## Regional Endpoint Routing
+
+Select the service route before configuring a client:
+
+| Service route | Base URL |
+| --- | --- |
+| International service (primary) | `https://apihub.agnes-ai.com/v1` |
+| International service (alternate) | `https://apihub.agnes-ai.cn/v1` |
+| China service | `https://api.agnes-ai.cn/v1` |
+
+For the International service, start with the primary route. If it has a network, DNS, TLS, or connection-timeout failure, test the alternate route with one minimal request and keep the reachable route. For the China service, use the China service route. Do not switch routes to resolve `400`, `401`, `403`, `422`, or `429` responses.
+
+Set the selected URL in an environment variable when supported:
+
+```bash
+export AGNES_BASE_URL="https://apihub.agnes-ai.com/v1"
+```
+
 ## Quick Start
 
 Copy or install the `agnes-ai-models` skill into your Codex skills directory, or link the GitHub skill directory from another agent that supports external instructions. Then ask the agent to use it for Agnes AI API integration tasks.
@@ -95,4 +113,6 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
 - Website: https://agnes-ai.com/
 - Docs: https://agnes-ai.com/doc/overview
 - Platform: https://platform.agnes-ai.com/
-- API base URL: `https://apihub.agnes-ai.com/v1`
+- International API base URL (primary): `https://apihub.agnes-ai.com/v1`
+- International API base URL (alternate): `https://apihub.agnes-ai.cn/v1`
+- China API base URL: `https://api.agnes-ai.cn/v1`
