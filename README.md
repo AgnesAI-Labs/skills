@@ -38,8 +38,7 @@ Restart Codex after installation so the skill is discovered.
 
 | Model | Type | Primary use |
 | --- | --- | --- |
-| `agnes-2.0-flash` | Text and vision-language | Chat, coding, reasoning, streaming, tools, and image understanding |
-| `agnes-image-2.0-flash` | Image generation | Fast text-to-image and image-to-image generation |
+| `agnes-2.5-flash` | Text and vision-language | Chat, coding, reasoning, streaming, tools, and image understanding |
 | `agnes-image-2.1-flash` | Image generation | Higher quality image generation and editing |
 | `agnes-video-v2.0` | Video generation | Text-to-video, image-to-video, and video result polling |
 
@@ -95,14 +94,14 @@ Copy or install the `agnes-ai-models` skill into your Codex skills directory, or
 Example prompt:
 
 ```text
-Use the Agnes AI Models skill to create a Python example for agnes-2.0-flash.
+Use the Agnes AI Models skill to create a Python example for agnes-2.5-flash.
 ```
 
 ## What The Skill Covers
 
 - OpenAI-compatible chat completions
 - Streaming responses
-- Image generation with `agnes-image-2.0-flash` and `agnes-image-2.1-flash`
+- Image generation with `agnes-image-2.1-flash`
 - Video generation with `agnes-video-v2.0` and `video_id` polling
 - Tool-calling style agent workflows
 - Common API errors and debugging checklists
