@@ -141,6 +141,17 @@ All scripts support `--format text|structured|json` (understand scripts) and
 For prompt templates and structured-output schemas, read
 `references/prompt-templates.md`.
 
+## Prompt Enhancement
+
+When composing prompts for the user, consult `references/prompt-components.md`:
+
+1. If the request is clear (subject + style + mood) → assemble the prompt directly using the formula and component tables. Do not ask questions.
+2. If the request has a subject but missing style/mood → suggest 2–3 component combinations and let the user pick.
+3. If the request is vague → ask up to 3 focused questions (subject, style, use case), then assemble.
+4. Always append relevant negative prompts from the reference file.
+5. Translate non-English input to English for the final prompt (models respond better to English).
+6. Always return both the saved file path AND the API URL to the user.
+
 ## Optional Smoke Test
 
 Use `scripts/smoke_chat.py` to test whether `AGNES_API_KEY` and the selected chat endpoint are configured correctly. Set `AGNES_BASE_URL` first when using the international alternate route or the China service:
