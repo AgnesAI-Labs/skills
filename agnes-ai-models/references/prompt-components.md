@@ -13,8 +13,8 @@ category, combine with the formula, and append the matching negatives.
 
 | Medium | Order |
 | --- | --- |
-| Image | `[Subject] + [Style] + [Quality booster] + [Lighting] + [Composition] + [Color mood] + [Details]` |
-| Video | `[Subject action] + [Camera movement] + [Style] + [Lighting] + [Environment motion] + [Pacing] + [Quality booster]` |
+| Image | `[Subject] + [Style] + [Quality booster] + [Lighting] + [Composition] + [Details]` |
+| Video | `[Subject action] + [Camera movement] + [Style] + [Lighting] + [Environment] + [Quality booster]` |
 
 Always end with the negative block. Translate non-English input to
 English for the final prompt — Agnes models respond better to English.
@@ -44,6 +44,9 @@ Three layers. Stack top-down; skip the ones that do not match the medium.
 | Photo-grade | 8k uhd, high dynamic range, natural lighting, crisp details | Photo or 3D realism |
 | Video-grade | smooth motion, high frame rate, cinematic quality, broadcast-ready | All video prompts |
 
+For photorealistic video, combine Universal + Photo-grade + Video-grade.
+For stylized video, drop Photo-grade to avoid keyword bloat.
+
 ## Lighting
 
 | Type | Keywords | Mood |
@@ -70,11 +73,19 @@ Three layers. Stack top-down; skip the ones that do not match the medium.
 | Rule of thirds | rule of thirds, off-center subject, balanced negative space |
 | Frame within frame | framed by doorway, window, archway, natural frame |
 
+## Details & Environment
+
+One or two short phrases that close out the prompt. For images, add
+texture or depth cues; for video, add environmental motion. Examples:
+`shallow depth of field`, `bokeh background`, `rain falling`, `crowd
+motion`, `leaves rustling`, `slow motion`.
+
 ## Negative Prompts
 
 Maximum 30 negative keywords per prompt. Universal + one subject
 category + video (if video) + style conflict = typical set. Lowercase,
-comma-separated, no other punctuation.
+comma-separated, no other punctuation. Line breaks are for readability
+only; combine into one comma-separated string before sending.
 
 ### Universal (every generation)
 
