@@ -106,6 +106,41 @@ Required issue/debug fields:
 
 Never include API keys, bearer tokens, private logs, or customer data.
 
+## Runnable Helper Scripts
+
+Ready-to-run scripts for each workflow. All scripts require `AGNES_API_KEY`
+and support `AGNES_BASE_URL`. Run `--help` on any script for full usage.
+
+| Script | Workflow | Model |
+| --- | --- | --- |
+| `scripts/image_understand.py` | Analyze a local image or URL | `agnes-2.5-flash` |
+| `scripts/image_generate.py` | Generate or edit images | `agnes-image-2.1-flash` |
+| `scripts/video_understand.py` | Analyze a video via sampled frames (requires ffmpeg) | `agnes-2.5-flash` |
+| `scripts/video_generate.py` | Generate video and poll for result | `agnes-video-v2.0` |
+
+### Quick examples
+
+```bash
+# Image understanding
+python scripts/image_understand.py --image photo.jpg --prompt "Describe this image."
+
+# Image generation (prints JSON; add --output ./out/ to save)
+python scripts/image_generate.py --prompt "A product photo of headphones" --size 1024x768
+
+# Video understanding (requires ffmpeg)
+python scripts/video_understand.py --video clip.mp4 --prompt "Summarize this video."
+
+# Video generation (prints JSON; add --output ./out/ to download)
+python scripts/video_generate.py --prompt "A cinematic shot of a city at night"
+```
+
+All scripts support `--format text|structured|json` (understand scripts) and
+`--output <path>` (generate scripts). Nothing is written to disk unless
+`--output` is explicitly provided.
+
+For prompt templates and structured-output schemas, read
+`references/prompt-templates.md`.
+
 ## Optional Smoke Test
 
 Use `scripts/smoke_chat.py` to test whether `AGNES_API_KEY` and the selected chat endpoint are configured correctly. Set `AGNES_BASE_URL` first when using the international alternate route or the China service:
