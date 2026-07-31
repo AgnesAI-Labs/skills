@@ -106,6 +106,52 @@ Required issue/debug fields:
 
 Never include API keys, bearer tokens, private logs, or customer data.
 
+## Runnable Helper Scripts
+
+Ready-to-run scripts for each workflow. All scripts require `AGNES_API_KEY`
+and support `AGNES_BASE_URL`. Run `--help` on any script for full usage.
+
+| Script | Workflow | Model |
+| --- | --- | --- |
+| `scripts/image_understand.py` | Analyze a local image or URL | `agnes-2.5-flash` |
+| `scripts/image_generate.py` | Generate or edit images | `agnes-image-2.1-flash` |
+| `scripts/video_understand.py` | Analyze a video via sampled frames (requires ffmpeg) | `agnes-2.5-flash` |
+| `scripts/video_generate.py` | Generate video and poll for result | `agnes-video-v2.0` |
+
+### Quick examples
+
+```bash
+# Image understanding
+python scripts/image_understand.py --image photo.jpg --prompt "Describe this image."
+
+# Image generation (prints JSON; add --output ./out/ to save)
+python scripts/image_generate.py --prompt "A product photo of headphones" --size 1024x768
+
+# Video understanding (requires ffmpeg)
+python scripts/video_understand.py --video clip.mp4 --prompt "Summarize this video."
+
+# Video generation (prints JSON; add --output ./out/ to download)
+python scripts/video_generate.py --prompt "A cinematic shot of a city at night"
+```
+
+All scripts support `--format text|structured|json` (understand scripts) and
+`--output <path>` (generate scripts). Nothing is written to disk unless
+`--output` is explicitly provided.
+
+For prompt templates and structured-output schemas, read
+`references/prompt-templates.md`.
+
+## Prompt Enhancement
+
+When composing prompts for the user, consult `references/prompt-components.md`:
+
+1. If the request is clear (subject + style + mood) → assemble the prompt directly using the formula and component tables. Do not ask questions.
+2. If the request has a subject but missing style/mood → suggest 2–3 component combinations and let the user pick.
+3. If the request is vague → ask up to 3 focused questions (subject, style, use case), then assemble.
+4. Always append relevant negative prompts from the reference file.
+5. Translate non-English input to English for the final prompt (models respond better to English).
+6. Always return both the saved file path AND the API URL to the user.
+
 ## Optional Smoke Test
 
 Use `scripts/smoke_chat.py` to test whether `AGNES_API_KEY` and the selected chat endpoint are configured correctly. Set `AGNES_BASE_URL` first when using the international alternate route or the China service:
