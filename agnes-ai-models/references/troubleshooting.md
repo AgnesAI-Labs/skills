@@ -6,22 +6,11 @@ Use this file when an Agnes AI API request fails or behaves differently than exp
 
 1. Confirm the API key is loaded from `AGNES_API_KEY`.
 2. Confirm the header is `Authorization: Bearer <key>`.
-3. Confirm the base URL matches the selected service route.
+3. Confirm the base URL is `https://apihub.agnes-ai.com/v1`.
 4. Confirm the model name and endpoint match.
 5. Remove secrets and reduce the request to a minimal reproducible example.
 6. Check current RPM and quota limits.
 7. Add retry with exponential backoff for transient errors.
-
-## Base URL Cannot Connect
-
-Use this decision flow only for network, DNS, TLS, or connection-timeout failures. Do not use endpoint switching as a workaround for request, authentication, permission, or quota errors.
-
-1. Confirm the Base URL includes `/v1` exactly once.
-2. Ask whether the user is using the International service or the China service.
-3. For the International service, test `https://apihub.agnes-ai.com/v1` first. If it is unreachable, test `https://apihub.agnes-ai.cn/v1` with one minimal request and keep the reachable route.
-4. For the China service, use `https://api.agnes-ai.cn/v1`.
-5. Update the client's `AGNES_BASE_URL` or custom OpenAI-compatible provider setting, then retry the same minimal request.
-6. If the result is `400`, `401`, `403`, `422`, or `429`, keep the selected route and troubleshoot the request, account, API key, permissions, or rate limit instead.
 
 ## Common Status Codes
 
@@ -40,12 +29,21 @@ Use this decision flow only for network, DNS, TLS, or connection-timeout failure
 | `522` | Connection timed out | Retry with backoff, reduce payload size |
 | `524` | Gateway timeout | Retry with backoff, avoid long synchronous waits |
 
+## Image requests
+
+- Use `agnes-image-2.5-flash` with `POST /v1/images/generations`.
+- Use `size` tiers (`1K`–`4K`) together with a supported `ratio`; arbitrary dimensions may be normalized.
+- For image-to-image or composition, put image URLs/Data URI values in `extra_body.image` as an array. Do not use a top-level `image` field or a legacy `tags` field.
+- Put `response_format` inside `extra_body` (`url` or `b64_json`).
+
 ## Video Polling
 
-Current video workflows should poll with `video_id`:
+Current video workflows should poll with both `video_id` and `model_name`:
 
 ```text
-GET https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>
+GET https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>&model_name=<MODEL_ID>
 ```
 
-Do not use `task_id` for current result polling unless a legacy workflow explicitly documents it.
+The create response may include `id`, `task_id`, and `video_id`; use `video_id` for retrieval. Read the top-level `status` and `url`, and stop on `completed` or `failed`. A `video_id`-only query is only valid for the text mode; include `model_name` for keyframe and reference modes.
+
+For `agnes-video-2.5-flash`, use exactly `size: "720P"`, keep image references to five or fewer, and do not send a non-empty `videos` array. Unsupported legacy fields include `width`, `height`, `fps`, `num_frames`, `quality`, `num_inference_steps`, `video_url`, `video_path`, and `video_reference`.
