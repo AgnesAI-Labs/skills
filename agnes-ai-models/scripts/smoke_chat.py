@@ -4,13 +4,6 @@
 Set AGNES_API_KEY before running:
 
     export AGNES_API_KEY="your_api_key_here"
-
-Optionally select a regional route:
-
-    export AGNES_BASE_URL="https://apihub.agnes-ai.com/v1"
-
-Then run:
-
     python scripts/smoke_chat.py
 """
 
@@ -26,14 +19,9 @@ def main() -> int:
         print("AGNES_API_KEY is not set.", file=sys.stderr)
         return 2
 
-    base_url = os.environ.get(
-        "AGNES_BASE_URL", "https://apihub.agnes-ai.com/v1"
-    ).rstrip("/")
-    print(f"Using AGNES_BASE_URL={base_url}", file=sys.stderr)
-
     client = OpenAI(
         api_key=api_key,
-        base_url=base_url,
+        base_url=os.getenv("AGNES_BASE_URL", "https://apihub.agnes-ai.com/v1"),
     )
 
     response = client.chat.completions.create(
@@ -45,6 +33,7 @@ def main() -> int:
             }
         ],
     )
+
     print(response.choices[0].message.content)
     return 0
 
