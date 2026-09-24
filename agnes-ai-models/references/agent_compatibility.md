@@ -1,6 +1,6 @@
 # Agnes AI Agent Compatibility
 
-Last updated: 2026-07-30 Asia/Singapore
+Last updated: 2026-09-24 Asia/Shanghai
 
 This skill is packaged for Codex, but its instructions can also be used by other agent software that supports external Markdown instructions, custom providers, or OpenAI-compatible model endpoints.
 
@@ -21,22 +21,12 @@ Use these defaults unless the target agent requires different field names:
 | Setting | Value |
 | --- | --- |
 | Provider type | OpenAI-compatible |
-| Base URL | Choose the service route below. |
+| Base URL | `https://apihub.agnes-ai.com/v1` |
 | API key | User-provided Agnes API key |
 | API key environment variable | `AGNES_API_KEY` |
-| Chat model | `agnes-2.5-flash` |
-| Image model | `agnes-image-2.1-flash` |
-| Video model | `agnes-video-v2.0` |
-
-## Regional Endpoint Routing
-
-| Service route | Base URL |
-| --- | --- |
-| International service (primary) | `https://apihub.agnes-ai.com/v1` |
-| International service (alternate) | `https://apihub.agnes-ai.cn/v1` |
-| China service | `https://api.agnes-ai.cn/v1` |
-
-For the International service, start with the primary route and use the alternate route only when the primary route has a network, DNS, TLS, or connection-timeout failure. For the China service, use the China service route. Do not rotate routes after `400`, `401`, `403`, `422`, or `429` responses; troubleshoot the request, key, account, permissions, or limits for the selected service instead.
+| Chat model | `agnes-2.0-flash` |
+| Image model | `agnes-image-2.5-flash` |
+| Video models | `agnes-video-2.5`, `agnes-video-2.5-flash` |
 
 ## Recommended Agent Instruction
 
@@ -44,12 +34,12 @@ Use this instruction when adding Agnes AI to another agent:
 
 ```text
 Use Agnes AI through the OpenAI-compatible API gateway.
-Base URL: Select the service-specific Base URL from the Regional Endpoint Routing table before making requests.
+Base URL: https://apihub.agnes-ai.com/v1
 Read the Agnes AI skill documentation from:
 https://github.com/AgnesAI-Labs/skills/tree/main/agnes-ai-models
-Before making requests, confirm the user has registered on the matching Agnes service and has an API key for that service.
+Before making requests, confirm the user has registered on Agnes Platform and has an API key.
 Never expose API keys, bearer tokens, private logs, screenshots containing secrets, or customer data.
-For model choices, use agnes-2.5-flash for chat, agnes-image-2.1-flash for image generation and editing, and agnes-video-v2.0 for video generation.
+For model choices, use agnes-2.0-flash for chat, agnes-image-2.5-flash for image generation and editing, agnes-video-2.5 for full-resolution video generation, and agnes-video-2.5-flash for fast 720P video generation.
 ```
 
 ## Notes
