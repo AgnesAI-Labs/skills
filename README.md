@@ -39,8 +39,9 @@ Restart Codex after installation so the skill is discovered.
 | Model | Type | Primary use |
 | --- | --- | --- |
 | `agnes-2.5-flash` | Text and vision-language | Chat, coding, reasoning, streaming, tools, and image understanding |
-| `agnes-image-2.1-flash` | Image generation | Higher quality image generation and editing |
-| `agnes-video-v2.0` | Video generation | Text-to-video, image-to-video, and video result polling |
+| `agnes-image-2.5-flash` | Image generation | Text-to-image, image-to-image, multi-image composition, and 1K–4K output |
+| `agnes-video-2.5` | Video generation | Text-to-video, keyframes, multimodal references, and 720P–2K output |
+| `agnes-video-2.5-flash` | Video generation | Fast 720P text-to-video and image/audio reference generation |
 
 ## Agent Compatibility
 
@@ -51,7 +52,7 @@ For non-Codex agents, use the files in [`agnes-ai-models`](./agnes-ai-models) as
 - Read [`SKILL.md`](./agnes-ai-models/SKILL.md) for the main workflow.
 - Use [`references/model_catalog.md`](./agnes-ai-models/references/model_catalog.md) for model names, endpoints, RPM notes, and Token Plan notes.
 - Use [`references/troubleshooting.md`](./agnes-ai-models/references/troubleshooting.md) for common API errors.
-- Use [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) for OpenClaw, Hermes, WorkBuddy, Manus, and generic agent setup guidance.
+- Use [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) for OpenClaw, Hermes, Manus, and generic agent setup guidance.
 
 Agnes AI uses an OpenAI-compatible API gateway. Most agent frameworks that support custom OpenAI-compatible providers can use Agnes models by setting the Agnes base URL, API key, and model name.
 
@@ -71,21 +72,15 @@ Do not commit API keys, bearer tokens, `.env` files, screenshots containing secr
 
 ## Regional Endpoint Routing
 
-Select the service route before configuring a client:
+Choose the service route before configuring a client:
 
-| Service route | Base URL |
-| --- | --- |
-| International service (primary) | `https://apihub.agnes-ai.com/v1` |
-| International service (alternate) | `https://apihub.agnes-ai.cn/v1` |
-| China service | `https://api.agnes-ai.cn/v1` |
+| Service route | Base URL | When to use it |
+| --- | --- | --- |
+| International service (primary) | `https://apihub.agnes-ai.com/v1` | Default route for the international service |
+| International service (alternate) | `https://apihub.agnes-ai.cn/v1` | Only for a network, DNS, TLS, or connection-timeout failure on the primary route |
+| China service | `https://api.agnes-ai.cn/v1` | Use for the China service |
 
-For the International service, start with the primary route. If it has a network, DNS, TLS, or connection-timeout failure, test the alternate route with one minimal request and keep the reachable route. For the China service, use the China service route. Do not switch routes to resolve `400`, `401`, `403`, `422`, or `429` responses.
-
-Set the selected URL in an environment variable when supported:
-
-```bash
-export AGNES_BASE_URL="https://apihub.agnes-ai.com/v1"
-```
+Do not switch routes to solve authentication, permission, quota, validation, or rate-limit errors.
 
 ## Quick Start
 
@@ -101,8 +96,8 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.5-flash.
 
 - OpenAI-compatible chat completions
 - Streaming responses
-- Image generation with `agnes-image-2.1-flash`
-- Video generation with `agnes-video-v2.0` and `video_id` polling
+- Image generation with `agnes-image-2.5-flash`, including `extra_body.image` editing inputs
+- Video generation with `agnes-video-2.5` / `agnes-video-2.5-flash` and `video_id` + `model_name` polling
 - Tool-calling style agent workflows
 - Common API errors and debugging checklists
 - Token Plan and RPM reference notes
@@ -110,8 +105,6 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.5-flash.
 ## Official Links
 
 - Website: https://agnes-ai.com/
-- Docs: https://agnes-ai.com/doc/overview
+- Docs: https://agnes-ai.com/en/docs/overview
 - Platform: https://platform.agnes-ai.com/
-- International API base URL (primary): `https://apihub.agnes-ai.com/v1`
-- International API base URL (alternate): `https://apihub.agnes-ai.cn/v1`
-- China API base URL: `https://api.agnes-ai.cn/v1`
+- API base URL: `https://apihub.agnes-ai.com/v1`

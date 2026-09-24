@@ -39,8 +39,9 @@ python /path/to/install-skill-from-github.py \
 | 模型 | 类型 | 主要用途 |
 | --- | --- | --- |
 | `agnes-2.5-flash` | 文本与视觉语言 | 对话、代码、推理、流式输出、工具调用和图像理解 |
-| `agnes-image-2.1-flash` | 图像生成 | 更高质量图像生成与编辑 |
-| `agnes-video-v2.0` | 视频生成 | 文生视频、图生视频和视频结果轮询 |
+| `agnes-image-2.5-flash` | 图像生成 | 文生图、图生图、多图合成和 1K–4K 输出 |
+| `agnes-video-2.5` | 视频生成 | 文生视频、关键帧、多模态参考和 720P–2K 输出 |
+| `agnes-video-2.5-flash` | 视频生成 | 快速 720P 文生视频及图像/音频参考生成 |
 
 ## 智能体软件兼容
 
@@ -51,7 +52,7 @@ python /path/to/install-skill-from-github.py \
 - 阅读 [`SKILL.md`](./agnes-ai-models/SKILL.md) 获取主要接入流程。
 - 使用 [`references/model_catalog.md`](./agnes-ai-models/references/model_catalog.md) 获取模型名称、端点、RPM 说明和 Token Plan 说明。
 - 使用 [`references/troubleshooting.md`](./agnes-ai-models/references/troubleshooting.md) 排查常见 API 错误。
-- 使用 [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) 查看 OpenClaw、Hermes、WorkBuddy、Manus 和通用智能体配置建议。
+- 使用 [`references/agent_compatibility.md`](./agnes-ai-models/references/agent_compatibility.md) 查看 OpenClaw、Hermes、Manus 和通用智能体配置建议。
 
 Agnes AI 使用 OpenAI 兼容 API 网关。大多数支持自定义 OpenAI-compatible provider 的智能体框架，都可以通过设置 Agnes Base URL、API Key 和模型名称来使用 Agnes 模型。
 
@@ -69,23 +70,17 @@ export AGNES_API_KEY="your_api_key_here"
 
 不要提交 API Key、Bearer token、`.env` 文件、包含密钥的截图或任何私有客户数据。
 
-## 区域路由选择
+## 区域端点路由
 
-配置客户端前，请先选择对应服务线路：
+配置客户端前先选择服务路由：
 
-| 服务线路 | Base URL |
-| --- | --- |
-| 国际站（主线路） | `https://apihub.agnes-ai.com/v1` |
-| 国际站（备用线路） | `https://apihub.agnes-ai.cn/v1` |
-| 国内站 | `https://api.agnes-ai.cn/v1` |
+| 服务路由 | Base URL | 使用场景 |
+| --- | --- | --- |
+| 国际服务（主端点） | `https://apihub.agnes-ai.com/v1` | 国际服务默认端点 |
+| 国际服务（备用端点） | `https://apihub.agnes-ai.cn/v1` | 仅在主端点出现网络、DNS、TLS 或连接超时时使用 |
+| 中国服务 | `https://api.agnes-ai.cn/v1` | 使用中国服务时选择 |
 
-国际站默认使用主线路。若主线路出现网络、DNS、TLS 或连接超时问题，可用最小请求测试备用线路，并固定使用可连通的线路。国内站请使用国内站线路。遇到 `400`、`401`、`403`、`422` 或 `429` 时，不应通过切换线路解决，而应检查请求、账号、API Key、权限或限流。
-
-支持环境变量时，可将选择的 URL 配置为：
-
-```bash
-export AGNES_BASE_URL="https://apihub.agnes-ai.com/v1"
-```
+不要用切换端点来解决认证、权限、配额、参数校验或限流错误。
 
 ## 快速开始
 
@@ -101,8 +96,8 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.5-flash.
 
 - OpenAI 兼容 Chat Completions
 - 流式输出
-- `agnes-image-2.1-flash` 图像生成
-- `agnes-video-v2.0` 视频生成与 `video_id` 轮询
+- `agnes-image-2.5-flash` 图像生成，以及通过 `extra_body.image` 传入编辑输入
+- `agnes-video-2.5` / `agnes-video-2.5-flash` 视频生成，以及使用 `video_id` + `model_name` 轮询
 - Tool calling 风格 Agent 工作流
 - 常见 API 错误与排查清单
 - Token Plan 与 RPM 参考说明
@@ -110,8 +105,6 @@ Use the Agnes AI Models skill to create a Python example for agnes-2.5-flash.
 ## 官方链接
 
 - 官网：https://agnes-ai.com/
-- 文档：https://agnes-ai.com/doc/overview
+- 文档：https://agnes-ai.com/en/docs/overview
 - 平台：https://platform.agnes-ai.com/
-- 国际站 API Base URL（主线路）：`https://apihub.agnes-ai.com/v1`
-- 国际站 API Base URL（备用线路）：`https://apihub.agnes-ai.cn/v1`
-- 国内站 API Base URL：`https://api.agnes-ai.cn/v1`
+- API Base URL：`https://apihub.agnes-ai.com/v1`
