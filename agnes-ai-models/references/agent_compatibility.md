@@ -24,7 +24,7 @@ Use these defaults unless the target agent requires different field names:
 | Base URL | `https://apihub.agnes-ai.com/v1` |
 | API key | User-provided Agnes API key |
 | API key environment variable | `AGNES_API_KEY` |
-| Chat model | `agnes-2.0-flash` |
+| Chat model | `agnes-2.5-flash` |
 | Image model | `agnes-image-2.5-flash` |
 | Video models | `agnes-video-2.5`, `agnes-video-2.5-flash` |
 
@@ -39,7 +39,7 @@ Read the Agnes AI skill documentation from:
 https://github.com/AgnesAI-Labs/skills/tree/main/agnes-ai-models
 Before making requests, confirm the user has registered on Agnes Platform and has an API key.
 Never expose API keys, bearer tokens, private logs, screenshots containing secrets, or customer data.
-For model choices, use agnes-2.0-flash for chat, agnes-image-2.5-flash for image generation and editing, agnes-video-2.5 for full-resolution video generation, and agnes-video-2.5-flash for fast 720P video generation.
+For model choices, use agnes-2.5-flash for chat, agnes-image-2.5-flash for image generation and editing, agnes-video-2.5 for full-resolution video generation, and agnes-video-2.5-flash for fast 720P video generation.
 ```
 
 ## Notes

@@ -15,7 +15,7 @@ These values are public reference values. Model availability, rate limits, prici
 
 | Model | Type | Endpoint | Use cases |
 | --- | --- | --- | --- |
-| `agnes-2.0-flash` | Text and vision-language | `/v1/chat/completions` | Chat, coding, reasoning, tools, streaming, image understanding, agent workflows |
+| `agnes-2.5-flash` | Text and vision-language | `/v1/chat/completions` | Chat, coding, reasoning, tools, streaming, image understanding, agent workflows |
 | `agnes-image-2.5-flash` | Image generation and editing | `/v1/images/generations` | Text-to-image, image-to-image, multi-image composition, 1K–4K output |
 | `agnes-video-2.5` | Video generation | `/v1/videos` | Text-to-video, keyframes, image/audio/video references, 720P–2K output |
 | `agnes-video-2.5-flash` | Video generation | `/v1/videos` | Fast 720P text-to-video, keyframes, image/audio references |
